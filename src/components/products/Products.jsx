@@ -5,15 +5,19 @@ import Product from './product/Product';
 const products = [
   {
     id: 1,
-    name: 'Shoes',
-    description: 'Running shoes',
+    name: 'Pasta',
+    description: 'Yummy Spaghetti with juicy sauce',
     price: '$5',
+    image:
+      'https://images.pexels.com/photos/1030947/pexels-photo-1030947.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
   {
     id: 2,
-    name: 'Macbook',
-    description: 'Apple Macbook Pro',
+    name: 'Breakfast Meal',
+    description: 'Bread with jam mix with berries',
     price: '$10',
+    image:
+      'https://images.pexels.com/photos/793765/pexels-photo-793765.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
   },
 ];
 
