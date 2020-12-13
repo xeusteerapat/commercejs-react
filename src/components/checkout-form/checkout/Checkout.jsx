@@ -45,7 +45,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMsg }) => {
 
       generateToken();
     }
-  }, [cart]);
+  }, [cart, activeStep, history]);
 
   const test = data => {
     setShippingData(data);
@@ -66,10 +66,10 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMsg }) => {
           <Typography variant='h5'>
             Thank you for your purchase, {order.customer.firstname}{' '}
             {order.customer.lastname}
-            <Divider className={classes.divider} />
-            <Typography variant='subtitle2'>
-              Order ref: {order.customer_reference}
-            </Typography>
+          </Typography>
+          <Divider className={classes.divider} />
+          <Typography variant='subtitle2'>
+            Order ref: {order.customer_reference}
           </Typography>
         </div>
         <br />
