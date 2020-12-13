@@ -16,6 +16,7 @@ const PaymentForm = ({
   backstep,
   nextStep,
   onCaptureCheckout,
+  timeout,
 }) => {
   const handleSubmit = async (e, elements, stripe) => {
     e.preventDefault();
@@ -56,9 +57,8 @@ const PaymentForm = ({
         },
       };
 
-      console.log('check order data', orderData);
-
       onCaptureCheckout(checkoutToken.id, orderData);
+      timeout();
       nextStep();
     }
   };
