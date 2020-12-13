@@ -13,6 +13,7 @@ import useStyles from './styles';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
 import { commerce } from '../../../libs/commerce';
+import { Link } from 'react-router-dom';
 
 const steps = ['Shipping Address', 'Payment Details'];
 
@@ -47,7 +48,38 @@ const Checkout = ({ cart, order, onCaptureCheckout, errorMsg }) => {
     nextStep();
   };
 
-  const Confirmation = () => <div>Confirmation</div>;
+  let Confirmation = () =>
+    order.customer ? (
+      <>
+        <div>
+          <Typography variant='h5'>
+            Thank you for your purchase, {order.customer.firstname}{' '}
+            {order.customer.lastname}
+            <Divider className={classes.divider} />
+            <Typography variant='subtitle2'>
+              Order ref: {order.customer_reference}
+            </Typography>
+          </Typography>
+        </div>
+        <br />
+        <Button component={Link} to='/' variant='outlined'>
+          Back to Home
+        </Button>
+      </>
+    ) : (
+      <div className={classes.spinner}>
+        <CircularProgress />
+      </div>
+    );
+
+  if (errorMsg) {
+    <>
+      <Typography variant='h5'>Error: {errorMsg}</Typography>
+      <Button component={Link} to='/' variant='outlined'>
+        Back to Home
+      </Button>
+    </>;
+  }
 
   const Form = () =>
     activeStep === 0 ? (
